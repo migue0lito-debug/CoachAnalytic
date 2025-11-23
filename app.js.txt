@@ -1,0 +1,81 @@
+// Coach Analitic - app.js
+
+
+// Element refs
+const navItems = document.querySelectorAll('.nav-item');
+const screens = document.querySelectorAll('.screen');
+const toggleContrast = document.getElementById('toggle-contrast');
+const bodyEl = document.body;
+
+
+// Video elements
+const videoPrimary = document.getElementById('videoPrimary');
+const hud = document.getElementById('hud');
+const traj = document.getElementById('traj');
+
+
+// Contrast mode videos
+const videoA = document.getElementById('videoA');
+const videoB = document.getElementById('videoB');
+
+
+// Controls
+const speed = document.getElementById('speed');
+const speedVal = document.getElementById('speedVal');
+const playBtn = document.getElementById('play');
+const pauseBtn = document.getElementById('pause');
+const back5 = document.getElementById('back5');
+const forward5 = document.getElementById('forward5');
+const frameBack = document.getElementById('frameBack');
+const frameFwd = document.getElementById('frameFwd');
+
+
+// Contrast controls
+const speed2 = document.getElementById('speed2');
+const speedVal2 = document.getElementById('speedVal2');
+const play2 = document.getElementById('play2');
+const pause2 = document.getElementById('pause2');
+const back5_2 = document.getElementById('back5-2');
+const forward5_2 = document.getElementById('forward5-2');
+
+
+// Basic navigation
+navItems.forEach(btn => btn.addEventListener('click', ()=>{
+navItems.forEach(n=>n.classList.remove('active'));
+btn.classList.add('active');
+const target = btn.dataset.target;
+screens.forEach(s=>s.classList.remove('active-screen'));
+document.getElementById(target).classList.add('active-screen');
+}));
+
+
+// Toggle contrast / normal
+toggleContrast.addEventListener('click', ()=>{
+const isContrast = bodyEl.classList.toggle('contrast');
+// show/hide containers
+document.querySelector('.single-mode').classList.toggle('hidden', isContrast);
+document.querySelector('.contrast-mode').classList.toggle('hidden', !isContrast);
+});
+
+
+// Load sample media into videos (for demo use poster as source if no video)
+// You can replace these with actual video file paths or input element later
+const sampleSrc = '/mnt/data/WhatsApp Image 2025-11-20 at 12.52.52 PM.jpeg';
+// If you have real mp4 files, replace sampleSrc with the file URL or a file input handler
+videoPrimary.src = '';
+videoA.src = '';
+videoB.src = '';
+
+
+// Playback controls for primary
+speed.addEventListener('input', ()=>{
+const v = parseFloat(speed.value);
+speedVal.textContent = v.toFixed(2) + 'x';
+if(videoPrimary) videoPrimary.playbackRate = v;
+});
+
+
+playBtn.addEventListener('click', ()=> videoPrimary.play());
+pauseBtn.addEventListener('click', ()=> videoPrimary.pause());
+back5.addEventListener('click', ()=> videoPrimary.currentTime = Math.max(0, videoPrimary.currentTime - 5));
+forward5.addEventListener('click', ()=> videoPrim
