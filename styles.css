@@ -1,0 +1,109 @@
+:root{
+    --bg:#0d0f10;
+    --panel:#0b0b0b;
+    --muted:#a9b0b6;
+    --accent:#00eaff;
+    --accent-2:#00c5d9;
+}
+
+*{ box-sizing:border-box }
+
+html,body,#app{ height:100% }
+
+body{
+    margin:0;
+    font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;
+    color:#e6f7f9;
+    background:radial-gradient(circle at 10% 10%, rgba(0,0,0,0.6), transparent),var(--bg);
+}
+
+.app{
+    display:flex;
+    height:100vh;
+}
+
+/* SIDEBAR */
+.sidebar{
+    width:250px;
+    padding:22px;
+    background:linear-gradient(180deg,#0b0b0b 0%, #0a0a0a 100%);
+    border-right:1px solid rgba(0,230,255,0.06);
+    box-shadow:2px 0 30px rgba(0,0,0,0.6);
+}
+
+.brand{
+    color:var(--accent);
+    font-size:22px;
+    margin:6px 0 18px;
+}
+
+.nav{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.nav-item{
+    background:transparent;
+    color:#cfeff3;
+    border:none;
+    text-align:left;
+    padding:12px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.nav-item.active{
+    background:linear-gradient(90deg, rgba(0,234,255,0.08), rgba(0,198,217,0.04));
+    border-left:4px solid var(--accent);
+    color:var(--accent);
+}
+
+.sidebar-footer{
+    color:#7d888c;
+    margin-top:20px;
+}
+
+/* MAIN AREA */
+.main{
+    flex:1;
+    padding:18px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.main-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-weight:700;
+    color:#dffefd;
+}
+
+.controls-top{
+    display:flex;
+    gap:12px;
+    align-items:center;
+}
+
+.btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    padding:8px 12px;
+    border-radius:8px;
+    color:#dfeff1;
+    cursor:pointer;
+}
+
+.btn.small{
+    padding:6px 8px;
+    font-size:13px;
+}
+
+.btn.accent{
+    background:var(--acc
